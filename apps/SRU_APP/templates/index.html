@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<style>
+	form{
+		width: 960px;	
+	}
+	.container-fluid{
+		padding: 50px;
+		background-color:whitesmoke;
+		width: 1100px;
+		border-radius: 10px;
+		margin-top: 50px;
+	}
+	</style>
+<title>forms</title>
+</head>
+
+<body>
+<div class="container-fluid">
+  <h2>users</h2>
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Created At</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for user in users%}
+    <tr>
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.fname}} {{user.lname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.created_at}}</td>
+      <td>
+        <a href="/users/{{user.id}}">Show</a>
+        <a href="/users/{{user.id}}/edit">| Edit</a>
+        <a href="/users/{{user.id}}/destroy">| Delete</a>
+      </td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+
+<div>
+<a href="/users/new">Add a New User</a>
+</div>
+	 </div> 
+</body>
+</html>

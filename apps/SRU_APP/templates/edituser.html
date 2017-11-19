@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<style>
+	form{
+		width: 960px;	
+	}
+	.container-fluid{
+		padding: 50px;
+		background-color:whitesmoke;
+		width: 1100px;
+		border-radius: 10px;
+		margin-top: 50px;
+	}
+	</style>
+<title>forms</title>
+</head>
+
+<body>
+<div class="container-fluid">
+  <h2>Edit User {{user.id}} </h2>
+  <form action="/users/{{user.id}}/update" method="POST">
+	 {% csrf_token %}
+ 	 <div class="form-group">
+    	<label for="first_name">First Name</label>
+    	<input type="text" class="form-control" name="fname"  placeholder="First Name" value="{{user.fname}}">
+    </div>
+	 <div class="form-group">
+    	<label for="last_name">Fast Name</label>
+    	<input type="text" class="form-control" name="lname"  placeholder="Last Name" value="{{user.lname}}">
+	 </div>
+	 
+	 <div class="form-group">
+    	<label for="email">Email</label>
+    	<input type="text" class="form-control" name="email"  placeholder="Email" value ="{{user.email}}">
+	 </div>
+
+  	<button type="submit" class="btn btn-primary" value="register">Update</button>
+	</form>
+	<br>
+	<a href="/users/{{user.id}}">Show</a>
+	<!-- takes back to the show page based on user.id -->
+	<a href="/users">| Go Back</a>	
+	<!-- returns to the root user page -->
+	 </div> 
+</body>
+</html>
